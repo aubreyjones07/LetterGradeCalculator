@@ -1,0 +1,99 @@
+package thelettergradecalculator;
+
+import java.util.Scanner; 
+
+public class TheLetterGradeCalculator{
+    
+    
+    public static void main(String[] args){
+        
+        //1. Declare All Identifiers Used in the Main Method
+        
+        String Name; 
+        int q1, q2, e1, e2; 
+        String IDNum; 
+        String ClassandCourse; 
+        int bestQuiz, bestExam; 
+        int max; 
+        int big; 
+        int score; 
+        char LetterGrade;
+       
+
+        Scanner kbd; 
+        kbd = new Scanner(System.in); 
+        
+       
+        //2. Have Professor Enter Student Information: 
+        System.out.println("Please Enter the Student's Name:  ");
+        Name = kbd.nextLine();  
+        System.out.println("Enter Student's ID Number:  ");
+        IDNum = kbd.nextLine(); 
+        System.out.println("Enter Student's Class and Course Number:  ");
+        ClassandCourse = kbd.nextLine(); 
+        //2. Have Professor Enter Quiz and Exam Scores: 
+        System.out.println("Enter Two Quiz Scores:  ");
+        q1 = kbd.nextInt();
+        q2 = kbd.nextInt();
+        System.out.println("Enter Two Exam Scores:  ");
+        e1 = kbd.nextInt(); 
+        e2 = kbd.nextInt();          
+        System.out.println("Quiz:  "+max(q1,q2));
+        System.out.println("Exam:  "+max(e1,e2));
+        System.out.println("Quiz Grade:  "+LetterGrade(max(q1, q2)));
+        System.out.println("Exam Grade:  "+LetterGrade(max(e1, e2)));
+        nameidnumletter(Name, IDNum, ClassandCourse, LetterGrade(max(q1,q2)), 
+        LetterGrade(max(e1, e2))); 
+        
+    }
+    
+        //Int Max of Quiz and Test Scores 
+        public static double max(int q1, int q2){
+            
+            if(q1 > q2)
+            {
+              return q1; 
+            }
+            else 
+            {
+            return q2; 
+            }
+            
+        }
+        
+        //Compute the Raw Percentage Method// 
+        public static double computerawpercentage(int quizScore, int examScore){ 
+            
+            return((quizScore * .4)+(examScore * .6))* 100; 
+            
+        }
+        
+        public static char LetterGrade(double score){
+        if (score >= 90.0)
+            return 'A'; 
+        else if (score >= 80.0)
+            return 'B'; 
+        else if (score >= 70.0)
+            return 'C'; 
+        else if (score >= 60.0)
+            return 'D'; 
+        else
+            return 'F'; 
+        
+        }
+ 
+        public static void nameidnumletter(String Name, String IDNum, 
+        String ClassandCourse, char LetterGrade, char Grade){
+           
+    
+        System.out.println("Student Name:  "+ Name);
+        System.out.println("ID Number:   "+ IDNum);      
+        System.out.println(ClassandCourse + " Final Grade:  "+LetterGrade);  
+  
+        }
+     
+        
+        
+    }
+    
+
